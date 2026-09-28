@@ -139,11 +139,17 @@ h2{
 #transaction-list::-webkit-scrollbar-hover{
     background-color: #a0aec0;
 }
-
 .transaction-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.transaction{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
     padding: 1rem 1.2rem;
     margin-bottom: 12px;
     border-radius: 12px;
@@ -152,6 +158,47 @@ h2{
     transition: all 0.2s ease;
     border-right: 2px solid;
     animation: slideIn 0.3s ease;
+}
+.transaction > span:first-child{
+    flex: 1;
+    min-width: 0;
+}
+
+.transaction > span:last-child{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+/*
+.transaction-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    border-right: 2px solid;
+    animation: slideIn 0.3s ease;
+}*/
+
+.transaction > span:first-child{
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.transaction > span:last-child{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
 }
 
 @keyframes slideIn{
@@ -174,7 +221,7 @@ h2{
     border-right-color:rgb(2, 82, 2);
 }
 
-.transaction.income{
+.transaction.expenses{
     border-right-color:rgb(162, 3, 3);
 }
 
